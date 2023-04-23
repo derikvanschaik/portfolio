@@ -1,5 +1,6 @@
 import { useState } from "preact/hooks";
 import Mimi from "../components/projects/Mimi.tsx";
+import Quotes from "../components/projects/Quotes.tsx";
 
 export default function ProjectIsland() {
     const [curIdx , setCurIdx] = useState(0);
@@ -8,10 +9,10 @@ export default function ProjectIsland() {
     const renderCurProjectSpotlight = function(idx: number){
         if(idx === 0){
             return <Mimi />;
+        }else if (idx === 1){
+            return <Quotes />
         }
-        return (
-            <h1>Hello world</h1>
-        )
+        return null;
     }
     return (
       <div>
@@ -38,7 +39,7 @@ export default function ProjectIsland() {
 
               {/* Selected Project Info box */}
               <div class='flex flex-col w-3/4'>
-                  <div class='h-full overflow-y-scroll text-center px-5'>
+                  <div class='h-full overflow-y-scroll px-5'>
                       {
                           renderCurProjectSpotlight(curIdx)
                       }
